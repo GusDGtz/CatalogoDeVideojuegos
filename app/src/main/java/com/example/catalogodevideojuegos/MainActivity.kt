@@ -16,6 +16,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.catalogodevideojuegos.ui.theme.CatalogoDeVideojuegosTheme
+import com.example.catalogodevideojuegos.ui.theme.PantallaUmaMusume
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,13 +33,16 @@ fun MyApp(){
     val navController = rememberNavController()
 NavHost(
     navController = navController,
-    startDestination = "pantalla_principal"
+    startDestination = "pa  ntalla_principal"
 ){
     composable("pantalla_principal"){
         PantallaPrincipal(navController)
     }
     composable("juego_01_celeste"){
         PantallaCeleste(navController)
+    }
+    composable("juego_02_umamusume"){
+        PantallaUmaMusume(navController)
     }
     }
 }
