@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -37,10 +38,12 @@ NavHost(
         PantallaPrincipal(navController)
     }
     composable("juego_01_celeste"){
-        InformacionCeleste(navController)
+        PantallaCeleste(navController)
     }
     }
 }
 
 @Composable
-fun PantallaPrincipal
+fun PantallaPrincipal(navController: NavHostController){
+
+}
