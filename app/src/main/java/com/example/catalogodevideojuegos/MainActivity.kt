@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,6 +31,7 @@ import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.FloatingActionButtonElevation
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -43,7 +46,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.FilterQuality
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -118,19 +125,24 @@ fun MyApp(){
         Scaffold(
             floatingActionButton = {
                 ExtendedFloatingActionButton(
-
-                    text = { Text("Lista de Videojuegos", color = Color.hsv(105F,.30F,.85F)) },
-                    icon = { Icon(Icons.AutoMirrored.Filled.List, contentDescription = "") },
-                    containerColor = Color(alpha = 70, red = 255, green = 255, blue = 255),
-                    contentColor = Color.hsv(105F,.30F,.85F),
                     onClick = {
                         scope.launch {
                             drawerState.apply {
                                 if (isClosed) open() else close()
                             }
                         }
-                    }
-                )
+                    },
+                    containerColor = Color.White.copy(alpha = .27f),
+                    contentColor = Color.hsv(105F,.30F,.85F),
+                    elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp),
+                    /*modifier = Modifier.blur(
+                        radius = 10.dp, // Cuanto mayor, más borroso
+                         // Opcional: calidad
+                    )*/
+                ){
+                    Text("Lista de Videojuegos")
+                    Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Menu")
+                }
             },
             floatingActionButtonPosition = FabPosition.Start
         ) { paddingValues ->
@@ -156,41 +168,61 @@ fun MyApp(){
 
 @Composable
 fun PantallaPrincipal(navController: NavHostController){
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize().background(Color.hsv(90F,.3F, .13F))
-    ){
-        Text(
-            text=" Catalogo de Videojuegos",
-            fontSize = 48.sp,
-            textAlign = TextAlign.Right,
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.padding(vertical = 48.dp, horizontal = 20.dp)
+    Box(modifier = Modifier.fillMaxSize()){
+        Image(
+            painter = painterResource(R.drawable.fondo_principal),
+            contentDescription = "Fondo",
+            contentScale = ContentScale.FillHeight,
+            modifier = Modifier.fillMaxSize()
         )
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Bottom,
-            modifier = Modifier.fillMaxSize().padding(96.dp)
+            modifier = Modifier.fillMaxSize()//.background(Color.hsv(90F,.3F, .13F))
         ){
             Text(
-                text="- Recomendados -",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Medium,
+                text=" Catalogo de Videojuegos",
+                fontSize = 48.sp,
+                textAlign = TextAlign.Right,
+                fontWeight = FontWeight.Bold,
                 color = Color.White,
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier.padding(vertical = 48.dp, horizontal = 20.dp)
             )
-            Button(
-                onClick ={
-                    navController.navigate("juego_01_celeste")
-                },
-                modifier = Modifier.width(300.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.hsv(105F,0F,.2F)),
-                shape = RoundedCornerShape(8.dp)
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Bottom,
+                modifier = Modifier.fillMaxSize().padding(96.dp)
             ){
                 Text(
-                    text = "Celeste"
+                    text="- Recomendados -",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color.White,
+                    modifier = Modifier.padding(8.dp)
                 )
+                Button(
+                    onClick ={
+                        navController.navigate("juego_01_celeste")
+                    },
+                    modifier = Modifier.width(300.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.hsv(105F,0F,.2F)),
+                    shape = RoundedCornerShape(8.dp)
+                ){
+                    Text(
+                        text = "Celeste"
+                    )
+                }
+                Button(
+                    onClick ={
+                        navController.navigate("juego_02_umamusume")
+                    },
+                    modifier = Modifier.width(300.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.hsv(105F,0F,.2F)),
+                    shape = RoundedCornerShape(8.dp)
+                ){
+                    Text(
+                        text = "Umamusume"
+                    )
+                }
             }
         }
     }
