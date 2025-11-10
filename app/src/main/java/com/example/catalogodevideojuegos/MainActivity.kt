@@ -132,7 +132,7 @@ fun MyApp(){
                             }
                         }
                     },
-                    containerColor = Color.White.copy(alpha = .27f),
+                    containerColor = Color.DarkGray.copy(alpha = .75F),
                     contentColor = Color.hsv(105F,.30F,.85F),
                     elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp),
                     /*modifier = Modifier.blur(
@@ -160,7 +160,6 @@ fun MyApp(){
                 composable("juego_02_umamusume"){
                     PantallaUmaMusume(navController)
                 }
-
             }
         }
     }
