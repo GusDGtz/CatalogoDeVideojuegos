@@ -1,5 +1,6 @@
 package com.example.catalogodevideojuegos
 
+import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -25,6 +26,7 @@ import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material3.AlertDialogDefaults.containerColor
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DrawerValue
@@ -51,6 +53,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -63,7 +66,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.catalogodevideojuegos.ui.theme.CatalogoDeVideojuegosTheme
 import com.example.catalogodevideojuegos.ui.theme.PantallaCeleste
 import com.example.catalogodevideojuegos.ui.theme.PantallaUmaMusume
+import com.example.catalogodevideojuegos.ui.theme.PantallaUndertale
 import kotlinx.coroutines.launch
+import org.intellij.lang.annotations.JdkConstants
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,26 +89,33 @@ fun MyApp(){
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            ModalDrawerSheet {
+            ModalDrawerSheet(
+                drawerContentColor = Color.White,
+                drawerContainerColor = Color.hsv(105F,0F,.2F),
+            ){
                 Column(
                     modifier = Modifier.padding(16.dp)
                         .verticalScroll(rememberScrollState())
-
                 ){
                     Spacer(Modifier.height(12.dp))
                     Text(
                         text = "Lista de Videojuegos",
-                        style = MaterialTheme.typography.titleLarge
+                        //style = MaterialTheme.typography.titleLarge,
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.Bold
                     )
                     HorizontalDivider()
                     NavigationDrawerItem(
                         label = {
                             Row(
+                                verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier.fillMaxWidth()
                             ){
-                                Icon(Icons.Filled.Home, contentDescription = "")
+                                Icon(Icons.Filled.Home, contentDescription = "Inicio", tint = Color.White)
                                 Text(
-                                    text = "Inicio"
+                                    text = "   Inicio",
+                                    color = Color.White,
+                                    fontSize = 24.sp
                                 )
 
                             }
@@ -113,9 +125,25 @@ fun MyApp(){
                     )
 
                     NavigationDrawerItem(
-                        label = {Text("Celeste")},
+                        label = {Text("🍓 Celeste",
+                            color = Color.White,
+                            fontSize = 24.sp)},
                         selected = false,
                         onClick = {navController.navigate("juego_01_celeste")}
+                    )
+                    NavigationDrawerItem(
+                        label = {Text("🐎 Umamusume",
+                            color = Color.White,
+                            fontSize = 24.sp)},
+                        selected = false,
+                        onClick = {navController.navigate("juego_02_umamusume")}
+                    )
+                    NavigationDrawerItem(
+                        label = {Text("💀 Undertale",
+                            color = Color.White,
+                            fontSize = 24.sp)},
+                        selected = false,
+                        onClick = {navController.navigate("juego_03_undertale")}
                     )
                 }
             }
@@ -132,13 +160,9 @@ fun MyApp(){
                             }
                         }
                     },
-                    containerColor = Color.DarkGray.copy(alpha = .75F),
-                    contentColor = Color.hsv(105F,.30F,.85F),
+                    containerColor = Color.hsv(105F,.30F,.85F),
+                    contentColor = Color.DarkGray.copy(alpha = .75F),
                     elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp),
-                    /*modifier = Modifier.blur(
-                        radius = 10.dp, // Cuanto mayor, más borroso
-                         // Opcional: calidad
-                    )*/
                 ){
                     Text("Lista de Videojuegos")
                     Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Menu")
@@ -160,6 +184,9 @@ fun MyApp(){
                 composable("juego_02_umamusume"){
                     PantallaUmaMusume(navController)
                 }
+                composable("juego_03_undertale"){
+                    PantallaUndertale(navController)
+                }
             }
         }
     }
@@ -167,21 +194,14 @@ fun MyApp(){
 
 @Composable
 fun PantallaPrincipal(navController: NavHostController){
-    Box(modifier = Modifier.fillMaxSize()){
-        Image(
-            painter = painterResource(R.drawable.fondo_principal),
-            contentDescription = "Fondo",
-            contentScale = ContentScale.FillHeight,
-            modifier = Modifier.fillMaxSize()
-        )
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxSize()//.background(Color.hsv(90F,.3F, .13F))
+            modifier = Modifier.fillMaxSize().background(Color.hsv(90F,.3F, .13F))
         ){
             Text(
                 text=" Catalogo de Videojuegos",
                 fontSize = 48.sp,
-                textAlign = TextAlign.Right,
+                textAlign = TextAlign.Left,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
                 modifier = Modifier.padding(vertical = 48.dp, horizontal = 20.dp)
@@ -224,7 +244,6 @@ fun PantallaPrincipal(navController: NavHostController){
                 }
             }
         }
-    }
 }
 
 @Preview
