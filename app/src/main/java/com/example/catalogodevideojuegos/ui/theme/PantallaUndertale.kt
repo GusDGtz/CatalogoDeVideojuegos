@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
@@ -26,7 +28,7 @@ import com.example.catalogodevideojuegos.R
 @Composable
 fun PantallaUndertale(navController: NavHostController){
     Column(
-        modifier = Modifier.fillMaxSize().background(Color.hsv(90F,.3F, .13F)),
+        modifier = Modifier.fillMaxSize().background(Color.hsv(240F,.3F, .13F)).verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
@@ -54,7 +56,7 @@ fun PantallaUndertale(navController: NavHostController){
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                "Es un videojuego de rol en 2D de 2015 creado por el desarrollador independiente estadounidense Toby Fox. \nEl jugador controla a un niño que ha caído al subsuelo: una gran región aislada bajo la superficie de la Tierra, separada por una barrera mágica. El jugador se encuentra con varios monstruos durante su viaje de regreso a la superficie, aunque algunos monstruos pueden involucrar al jugador en una pelea. El sistema de combate involucra al jugador navegando a través de los ataques mini bullet hell por parte del oponente.",
+                "Es un videojuego de rol en 2D de 2015 creado por el desarrollador independiente estadounidense Toby Fox. \nEl jugador controla a un niño que ha caído al subsuelo: una gran región aislada bajo la superficie de la Tierra, separada por una barrera mágica. \nEl jugador se encuentra con varios monstruos durante su viaje de regreso a la superficie, aunque algunos monstruos pueden involucrar al jugador en una pelea. \nEl sistema de combate involucra al jugador navegando a través de los ataques mini bullet hell por parte del oponente.",
                 fontSize = 20.sp,
                 color = Color.White
             )

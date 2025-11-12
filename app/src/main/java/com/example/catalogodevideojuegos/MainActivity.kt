@@ -100,11 +100,11 @@ fun MyApp(){
                     Spacer(Modifier.height(12.dp))
                     Text(
                         text = "Lista de Videojuegos",
-                        //style = MaterialTheme.typography.titleLarge,
                         fontSize = 32.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    HorizontalDivider()
+                    Spacer(Modifier.height(6.dp))
+                    HorizontalDivider(Modifier.height(12.dp))
                     NavigationDrawerItem(
                         label = {
                             Row(
@@ -164,8 +164,9 @@ fun MyApp(){
                     contentColor = Color.DarkGray.copy(alpha = .75F),
                     elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp),
                 ){
-                    Text("Lista de Videojuegos")
                     Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Menu")
+                    Text("Lista de Videojuegos")
+
                 }
             },
             floatingActionButtonPosition = FabPosition.Start
@@ -199,7 +200,7 @@ fun PantallaPrincipal(navController: NavHostController){
             modifier = Modifier.fillMaxSize().background(Color.hsv(90F,.3F, .13F))
         ){
             Text(
-                text=" Catalogo de Videojuegos",
+                text="Catalogo de Videojuegos",
                 fontSize = 48.sp,
                 textAlign = TextAlign.Left,
                 fontWeight = FontWeight.Bold,
