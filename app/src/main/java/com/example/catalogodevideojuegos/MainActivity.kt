@@ -65,6 +65,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.catalogodevideojuegos.ui.theme.CatalogoDeVideojuegosTheme
 import com.example.catalogodevideojuegos.ui.theme.PantallaCeleste
+import com.example.catalogodevideojuegos.ui.theme.PantallaExpedition
+import com.example.catalogodevideojuegos.ui.theme.PantallaOmori
 import com.example.catalogodevideojuegos.ui.theme.PantallaUmaMusume
 import com.example.catalogodevideojuegos.ui.theme.PantallaUndertale
 import kotlinx.coroutines.launch
@@ -145,6 +147,20 @@ fun MyApp(){
                         selected = false,
                         onClick = {navController.navigate("juego_03_undertale")}
                     )
+                    NavigationDrawerItem(
+                        label = {Text("🔪 Omori",
+                            color = Color.White,
+                            fontSize = 24.sp)},
+                        selected = false,
+                        onClick = {navController.navigate("juego_04_omori")}
+                    )
+                    NavigationDrawerItem(
+                        label = {Text("🗼 Expedition 33",
+                            color = Color.White,
+                            fontSize = 24.sp)},
+                        selected = false,
+                        onClick = {navController.navigate("juego_05_expedition")}
+                    )
                 }
             }
         }
@@ -187,6 +203,12 @@ fun MyApp(){
                 }
                 composable("juego_03_undertale"){
                     PantallaUndertale(navController)
+                }
+                composable("juego_04_omori"){
+                    PantallaOmori(navController)
+                }
+                composable("juego_05_expedition"){
+                    PantallaExpedition(navController)
                 }
             }
         }

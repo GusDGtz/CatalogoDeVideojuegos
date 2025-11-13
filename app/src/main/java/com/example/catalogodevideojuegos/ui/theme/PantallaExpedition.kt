@@ -25,8 +25,8 @@ import androidx.navigation.NavHostController
 import com.example.catalogodevideojuegos.R
 
 @Composable
-fun PantallaUmaMusume(navController: NavHostController) {
-    val backgroundColor = Color.hsv(270F, 0.5F, 0.2F)
+fun PantallaExpedition(navController: NavHostController) {
+    val backgroundColor = Color(0xFF261706)
 
     Column(
         modifier = Modifier
@@ -37,12 +37,12 @@ fun PantallaUmaMusume(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         Image(
-            painter = painterResource(R.drawable.logo_umamusume),
+            painter = painterResource(R.drawable.logo_expedition),
             contentDescription = "logo umamusume",
             modifier = Modifier.size(150.dp)
         )
         Text(
-            text = "UmaMusume",
+            text = "Expedition 33",
             fontSize = 52.sp,
             fontWeight = FontWeight.ExtraBold,
             color = Color.White,
@@ -59,10 +59,9 @@ fun PantallaUmaMusume(navController: NavHostController) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                "Uma Musume Pretty Derby presenta un mundo antropomorfo de chicas-caballo que estudian en una academia y entrenan intensamente para competir en carreras. La historia sigue a Special Week, una chica yegua " +
-                        "de secundaria rural que se traslada a Tracen Academy con la promesa de su madre de convertirse en la mejor corredora de Japón. A medida que se embarca en su viaje, se enamora del estilo de correr de " +
-                        "Silence Suzuka y promete unirse al mismo equipo. La serie explora el camino de las chicas-caballo hacia la fama y la fortuna como corredoras e ídolos, mientras enfrentan múltiples lesiones y luchan por seguir " +
-                        "siendo las mejores. \n",
+                "Clair Obscur: Expedition 33 es un innovador juego de rol por turnos con mecánicas en tiempo real únicas, que hacen que " +
+                        " batallas sean más inmersivas y adictivas que nunca. Explora un mundo de fantasía inspirado en la Francia de la Belle " +
+                        "Époque en el que lucharás contra rivales temibles.",
                 fontSize = 20.sp,
                 color = Color.White,
                 textAlign = TextAlign.Justify
