@@ -1,10 +1,13 @@
 package com.example.catalogodevideojuegos
 
+import android.R.attr.fontWeight
+import android.R.attr.text
 import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -17,7 +20,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -29,6 +35,8 @@ import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.AlertDialogDefaults.containerColor
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FabPosition
@@ -214,60 +222,74 @@ fun MyApp(){
         }
     }
 }
+data class Juego(val nombre: String, @DrawableRes val imagenResId: Int){
+
+}
 
 @Composable
-fun PantallaPrincipal(navController: NavHostController){
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxSize().background(Color.hsv(90F,.3F, .13F))
-        ){
-            Text(
-                text="Catalogo de Videojuegos",
-                fontSize = 48.sp,
-                textAlign = TextAlign.Left,
-                fontWeight = FontWeight.Bold,
-                color = Color.White,
-                modifier = Modifier.padding(vertical = 48.dp, horizontal = 20.dp)
-            )
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Bottom,
-                modifier = Modifier.fillMaxSize().padding(96.dp)
-            ){
-                Text(
-                    text="- Recomendados -",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Color.White,
-                    modifier = Modifier.padding(8.dp)
-                )
-                Button(
-                    onClick ={
-                        navController.navigate("juego_01_celeste")
-                    },
-                    modifier = Modifier.width(300.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.hsv(105F,0F,.2F)),
-                    shape = RoundedCornerShape(8.dp)
-                ){
-                    Text(
-                        text = "Celeste"
-                    )
-                }
-                Button(
-                    onClick ={
-                        navController.navigate("juego_02_umamusume")
-                    },
-                    modifier = Modifier.width(300.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.hsv(105F,0F,.2F)),
-                    shape = RoundedCornerShape(8.dp)
-                ){
-                    Text(
-                        text = "Umamusume"
-                    )
+fun PantallaPrincipal(navController: NavHostController) {
+    val juegos = listOf(
+        Juego("Celeste", R.drawable.imagen_juego_celeste),
+        Juego("Umamusume", R.drawable.imagen_juego_umamusume),
+        //Juego("Undertale", ),
+        //Juego("Omori", ),
+        //Juego("Expedition 33", )
+    )
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF33691E))
+    ) {
+        Text(
+            text = "Catalogo de Videojuegos",
+            fontSize = 48.sp,
+            textAlign = TextAlign.Left,
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            modifier = Modifier.padding(vertical = 48.dp, horizontal = 20.dp)
+        )
+
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFFF5F5F5))
+                .padding(8.dp)
+        ) {
+            items(juegos) { juego ->
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(6.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    shape = RoundedCornerShape(16.dp)
+                ) {
+
+                    Row(modifier = Modifier.padding(16.dp)) {
+                        Column {
+                            Text(
+                                text = juego.nombre,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp
+                            )
+                            Image(
+                                painter = painterResource(juego.imagenResId),
+                                contentDescription = "logo celeste",
+                                modifier = Modifier
+                                    .size(200.dp)
+                            )
+                        }
+                    }
+
                 }
             }
         }
+    }
 }
+
+
 
 @Preview
 @Composable
