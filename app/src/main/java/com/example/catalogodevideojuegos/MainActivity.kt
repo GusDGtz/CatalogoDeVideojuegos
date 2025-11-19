@@ -231,16 +231,17 @@ fun PantallaPrincipal(navController: NavHostController) {
     val juegos = listOf(
         Juego("Celeste", R.drawable.imagen_juego_celeste),
         Juego("Umamusume", R.drawable.imagen_juego_umamusume),
-        //Juego("Undertale", ),
-        //Juego("Omori", ),
-        //Juego("Expedition 33", )
+        Juego("Undertale", R.drawable.imagen_juego_undetale),
+        Juego("Omori", R.drawable.imagen_juego_omori),
+        Juego("Expedition 33", R.drawable.imagen_juego_exp
+        )
     )
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF33691E))
+            .background(Color(0xFF5E2F2F))
     ) {
         Text(
             text = "Catalogo de Videojuegos",
@@ -278,7 +279,7 @@ fun PantallaPrincipal(navController: NavHostController) {
                                 painter = painterResource(juego.imagenResId),
                                 contentDescription = "logo celeste",
                                 modifier = Modifier
-                                    .size(200.dp)
+                                    .size(500.dp)
                             )
                         }
                     }
