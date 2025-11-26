@@ -29,6 +29,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
@@ -47,6 +48,7 @@ import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.FloatingActionButtonElevation
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
@@ -54,6 +56,7 @@ import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
@@ -100,6 +103,7 @@ fun MyApp(){
     val navController = rememberNavController()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    val backgroundColor = Color.Black
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -182,23 +186,26 @@ fun MyApp(){
         Scaffold(
             topBar = {
                 TopAppBar(
-                    colors = topAppBarColors(
-                        containerColor = Color(0xFF000000)
-                    ),
-                    title = { Button(onClick = {
-                        scope.launch {
-                            drawerState.apply {
-                                if(isClosed)open() else close()
+                    title = { Text("Lista de Videojuegos", color = Color.White) },
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            scope.launch {
+                                drawerState.apply {
+                                    if(isClosed) open() else close()
+                                }
                             }
+                        }) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.List,
+                                contentDescription = "Volver",
+                                tint = Color.White
+                            )
                         }
                     },
-
-                        ){
-                        Text("Menu")
-                    } }
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = backgroundColor)
                 )
-            }
-
+            },
+            containerColor = backgroundColor
         ) { paddingValues ->
             NavHost(
                 navController = navController,
