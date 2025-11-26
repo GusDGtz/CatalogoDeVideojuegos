@@ -2,6 +2,7 @@ package com.example.catalogodevideojuegos
 
 import android.R.attr.fontWeight
 import android.R.attr.text
+import android.R.attr.title
 import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -38,6 +39,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
@@ -51,6 +53,8 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -90,6 +94,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyApp(){
     val navController = rememberNavController()
@@ -175,25 +180,32 @@ fun MyApp(){
     ) {
 
         Scaffold(
-            floatingActionButton = {
-                ExtendedFloatingActionButton(
-                    onClick = {
+            topBar = {
+                TopAppBar(
+                    colors = topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        titleContentColor = MaterialTheme.colorScheme.primary
+                    ),
+                    title = { Text("") }
+                )
+                Row (
+                    modifier = Modifier.fillMaxWidth().padding(12.dp),
+                    horizontalArrangement = Arrangement.Start
+                ){
+                    Button(onClick = {
                         scope.launch {
                             drawerState.apply {
-                                if (isClosed) open() else close()
+                                if(isClosed)open() else close()
                             }
                         }
                     },
-                    containerColor = Color.hsv(105F,.30F,.85F),
-                    contentColor = Color.DarkGray.copy(alpha = .75F),
-                    elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp),
-                ){
-                    Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Menu")
-                    Text("Lista de Videojuegos")
 
+                    ){
+                        Text("Menu")
+                    }
                 }
-            },
-            floatingActionButtonPosition = FabPosition.Start
+            }
+
         ) { paddingValues ->
             NavHost(
                 navController = navController,
@@ -229,19 +241,18 @@ data class Juego(val nombre: String, @DrawableRes val imagenResId: Int){
 @Composable
 fun PantallaPrincipal(navController: NavHostController) {
     val juegos = listOf(
-        Juego("Celeste", R.drawable.imagen_juego_celeste),
+        Juego("Celeste", R.drawable.fondo_banner_celeste),
         Juego("Umamusume", R.drawable.imagen_juego_umamusume),
         Juego("Undertale", R.drawable.imagen_juego_undetale),
         Juego("Omori", R.drawable.imagen_juego_omori),
-        Juego("Expedition 33", R.drawable.imagen_juego_exp
-        )
+        Juego("Expedition 33", R.drawable.imagen_juego_exp)
     )
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF5E2F2F))
+            .background(Color(0xFF000000))
     ) {
         Text(
             text = "Catalogo de Videojuegos",
@@ -255,35 +266,59 @@ fun PantallaPrincipal(navController: NavHostController) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFF5F5F5))
+                // --- CORRECCIÓN 1: Eliminar el background incorrecto ---
+                // Se elimina el .background(Image(...)) que no es válido.
                 .padding(8.dp)
         ) {
             items(juegos) { juego ->
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(200.dp) // Añadimos una altura para que la imagen se vea
                         .padding(6.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    // Hacemos el color del contenedor transparente para que se vea la imagen
+                    colors = CardDefaults.cardColors(containerColor = Color.Transparent),
                     shape = RoundedCornerShape(16.dp)
                 ) {
+                    // --- CORRECCIÓN 2: Usar Box para apilar elementos ---
+                    Box(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        // 1. IMAGEN DE FONDO
+                        Image(
+                            painter = painterResource(id = juego.imagenResId),
+                            contentDescription = "Fondo de ${juego.nombre}",
+                            modifier = Modifier.matchParentSize(), // Ocupa todo el Box/Card
+                            contentScale = ContentScale.Crop // Asegura que la imagen cubra el área
+                        )
 
-                    Row(modifier = Modifier.padding(16.dp)) {
-                        Column {
-                            Text(
-                                text = juego.nombre,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp
-                            )
-                            Image(
-                                painter = painterResource(juego.imagenResId),
-                                contentDescription = "logo celeste",
-                                modifier = Modifier
-                                    .size(500.dp)
-                            )
+                        // 2. SCRIM (Capa semi-transparente para legibilidad)
+                        // Esto hace que el texto sea más fácil de leer sobre la imagen.
+                        Spacer(
+                            modifier = Modifier
+                                .matchParentSize()
+                                .background(Color.Black.copy(alpha = 0.5f))
+                        )
+
+                        // 3. CONTENIDO ORIGINAL (TEXTO)
+                        // Mantenemos la estructura original (Row > Column > Text) pero ajustamos colores.
+                        Row(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxSize(), // Rellenar para poder posicionar
+                            verticalAlignment = Alignment.Bottom // Posicionar texto abajo
+                        ) {
+                            Column {
+                                Text(
+                                    text = juego.nombre,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 28.sp, // Aumentado para mejor lectura en banner
+                                    color = Color.White // Texto blanco para contraste con el scrim
+                                )
+                            }
                         }
                     }
-
                 }
             }
         }
