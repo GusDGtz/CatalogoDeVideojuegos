@@ -183,16 +183,9 @@ fun MyApp(){
             topBar = {
                 TopAppBar(
                     colors = topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.primary
+                        containerColor = Color(0xFF000000)
                     ),
-                    title = { Text("") }
-                )
-                Row (
-                    modifier = Modifier.fillMaxWidth().padding(12.dp),
-                    horizontalArrangement = Arrangement.Start
-                ){
-                    Button(onClick = {
+                    title = { Button(onClick = {
                         scope.launch {
                             drawerState.apply {
                                 if(isClosed)open() else close()
@@ -200,10 +193,10 @@ fun MyApp(){
                         }
                     },
 
-                    ){
+                        ){
                         Text("Menu")
-                    }
-                }
+                    } }
+                )
             }
 
         ) { paddingValues ->
