@@ -78,11 +78,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.catalogodevideojuegos.ui.theme.CatalogoDeVideojuegosTheme
 import com.example.catalogodevideojuegos.ui.theme.PantallaCeleste
 import com.example.catalogodevideojuegos.ui.theme.PantallaExpedition
+import com.example.catalogodevideojuegos.ui.theme.PantallaMundosCeleste
 import com.example.catalogodevideojuegos.ui.theme.PantallaOmori
 import com.example.catalogodevideojuegos.ui.theme.PantallaUmaMusume
 import com.example.catalogodevideojuegos.ui.theme.PantallaUndertale
 import kotlinx.coroutines.launch
-import org.intellij.lang.annotations.JdkConstants
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -217,6 +217,9 @@ fun MyApp(){
                 }
                 composable("juego_01_celeste"){
                     PantallaCeleste(navController)
+                }
+                composable("juego_01_celeste_0"){
+                    PantallaMundosCeleste(navController)
                 }
                 composable("juego_02_umamusume"){
                     PantallaUmaMusume(navController)
