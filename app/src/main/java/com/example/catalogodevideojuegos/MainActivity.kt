@@ -103,7 +103,7 @@ fun MyApp(){
     val navController = rememberNavController()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
-    val backgroundColor = Color.Black
+    val backgroundColor = Color(0xFF2A2A2A)
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -237,25 +237,25 @@ fun MyApp(){
         }
     }
 }
-data class Juego(val nombre: String, @DrawableRes val imagenResId: Int){
+data class Juego(val nombre: String, @DrawableRes val imagenResId: Int, val autor: String, val fecha: String){
 
 }
 
 @Composable
 fun PantallaPrincipal(navController: NavHostController) {
     val juegos = listOf(
-        Juego("Celeste", R.drawable.fondo_banner_celeste),
-        Juego("Umamusume", R.drawable.imagen_juego_umamusume),
-        Juego("Undertale", R.drawable.imagen_juego_undetale),
-        Juego("Omori", R.drawable.imagen_juego_omori),
-        Juego("Expedition 33", R.drawable.imagen_juego_exp)
+        Juego("Celeste", R.drawable.fondo_celeste_card, "Maddy Thorson", "2018"),
+        Juego("Umamusume", R.drawable.imagen_juego_umamusume, "Kosugi", "2021"),
+        Juego("Undertale", R.drawable.imagen_juego_undetale, "Toby Fox", "2015"),
+        Juego("Omori", R.drawable.imagen_juego_omori, "OMOCAT", "2020"),
+        Juego("Expedition 33", R.drawable.imagen_juego_exp, "François Meurisse", "2025")
     )
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF000000))
+            .background(Color(0xFF0E0E0E))
     ) {
         Text(
             text = "Catalogo de Videojuegos",
@@ -291,7 +291,7 @@ fun PantallaPrincipal(navController: NavHostController) {
                         // 1. IMAGEN DE FONDO
                         Image(
                             painter = painterResource(id = juego.imagenResId),
-                            contentDescription = "Fondo de ${juego.nombre}",
+                            contentDescription = "Fondo de ${juego.nombre + juego.autor + juego.fecha}",
                             modifier = Modifier.matchParentSize(), // Ocupa todo el Box/Card
                             contentScale = ContentScale.Crop // Asegura que la imagen cubra el área
                         )
@@ -316,7 +316,19 @@ fun PantallaPrincipal(navController: NavHostController) {
                                 Text(
                                     text = juego.nombre,
                                     fontWeight = FontWeight.Bold,
-                                    fontSize = 28.sp, // Aumentado para mejor lectura en banner
+                                    fontSize = 36.sp, // Aumentado para mejor lectura en banner
+                                    color = Color.White // Texto blanco para contraste con el scrim
+                                )
+                                Text(
+                                    text = juego.autor,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 22.sp, // Aumentado para mejor lectura en banner
+                                    color = Color.White // Texto blanco para contraste con el scrim
+                                )
+                                Text(
+                                    text = juego.fecha,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 22.sp, // Aumentado para mejor lectura en banner
                                     color = Color.White // Texto blanco para contraste con el scrim
                                 )
                             }
