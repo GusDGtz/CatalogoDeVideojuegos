@@ -39,7 +39,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.catalogodevideojuegos.R
-import org.intellij.lang.annotations.JdkConstants
 
 data class MundoCeleste(val id: String, val nombre: String, val dificultad: String)
 
