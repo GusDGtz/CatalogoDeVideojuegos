@@ -269,8 +269,6 @@ fun PantallaPrincipal(navController: NavHostController) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                // --- CORRECCIÓN 1: Eliminar el background incorrecto ---
-                // Se elimina el .background(Image(...)) que no es válido.
                 .padding(8.dp)
         ) {
             items(juegos) { juego ->
