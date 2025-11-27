@@ -37,32 +37,11 @@ import com.example.catalogodevideojuegos.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaUndertale(navController: NavHostController){
-    val backgroundColor = Color.hsv(240F,.3F, .13F)
-    val primaryColor = Color.hsv(240F,.3F, .13F)
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Detalles del Juego", color = Color.White) },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Volver",
-                            tint = Color.White
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = primaryColor)
-            )
-        },
-        containerColor = backgroundColor
-    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(paddingValues),
+                .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
@@ -70,7 +49,7 @@ fun PantallaUndertale(navController: NavHostController){
                 contentDescription = "logo undertale",
                 modifier = Modifier
                     .size(150.dp)
-                    .padding(top = 16.dp)
+                    .padding(8.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
@@ -107,11 +86,9 @@ fun PantallaUndertale(navController: NavHostController){
                         lineHeight = 24.sp,
                         color = Color.White,
                         textAlign = TextAlign.Justify
-
-                    )
-                }
+                )
             }
-            Spacer(modifier = Modifier.height(24.dp))
         }
+           Spacer(modifier = Modifier.height(24.dp))
     }
 }

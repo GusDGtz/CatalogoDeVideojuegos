@@ -1,6 +1,7 @@
 package com.example.catalogodevideojuegos.ui.theme
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -38,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.catalogodevideojuegos.R
+import org.intellij.lang.annotations.JdkConstants
 
 data class MundoCeleste(val id: String, val nombre: String, val dificultad: String)
 
@@ -48,21 +50,21 @@ fun TarjetaMundoCeleste(mundoCeleste: MundoCeleste){
             .fillMaxWidth()
             .padding(vertical = 6.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF17282D)),
         shape = RoundedCornerShape(16.dp)
     ) {
         Row(modifier = Modifier.padding(16.dp)) {
-
-            //Spacer(modifier = Modifier.width(12.dp))
+            Spacer(modifier = Modifier.width(12.dp))
             Column {
                 Text(
                     text = mundoCeleste.nombre,
                     fontWeight = FontWeight.Bold,
+                    color = Color(0xFF8BC3F1),
                     fontSize = 18.sp
                 )
                 Text(
-                    text = mundoCeleste.dificultad,
-                    color = Color.Gray,
+                    text = "Dificultad: "+mundoCeleste.dificultad,
+                    color = Color(0xFF8BC3F1),
                     fontSize = 14.sp
                 )
             }
@@ -73,35 +75,16 @@ fun TarjetaMundoCeleste(mundoCeleste: MundoCeleste){
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaCeleste(navController : NavController){
-    val backgroundColor = Color.hsv(240F,.3F, .20F)
-    val titleColor = Color.hsv(195f, .43f, .75f)
+    val backgroundColor = Color.hsv(195f, .43f, .50f)
+    val titleColor = Color.hsv(195f, .43f, 1f)
 
 
-
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Detalles del Juego", color = Color.White) },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Volver",
-                            tint = Color.White
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = backgroundColor)
-            )
-        },
-        containerColor = backgroundColor
-    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .background(backgroundColor)
                 .verticalScroll(rememberScrollState())
-                .padding(paddingValues),
+                .padding(4.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
@@ -111,15 +94,14 @@ fun PantallaCeleste(navController : NavController){
                     .size(150.dp)
                     .padding(top = 16.dp)
             )
-            Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = "CELESTE",
+                textAlign = TextAlign.Center,
                 fontSize = 48.sp,
                 fontWeight = FontWeight.ExtraBold,
                 color = titleColor,
-                modifier = Modifier.padding(horizontal = 18.dp).fillMaxWidth()
+                modifier = Modifier.padding(8.dp).fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(16.dp))
 
             Card(
                 modifier = Modifier
@@ -144,8 +126,7 @@ fun PantallaCeleste(navController : NavController){
                                 "Celeste se lanzó en enero de 2018 para las plataformas Microsoft Windows, Nintendo Switch, PlayStation 4, Xbox One, macOS y GNU/Linux.",
                         fontSize = 16.sp,
                         lineHeight = 24.sp,
-                        color = Color.White,
-                        textAlign = TextAlign.Justify
+                        color = Color.White
 
                     )
                 }
@@ -154,14 +135,13 @@ fun PantallaCeleste(navController : NavController){
             Button(
                 onClick = {navController.navigate("juego_01_celeste_0"){
                     launchSingleTop = true
-                }
+                    }
                 }
             ){
                 Text("Lista de Niveles")
             }
 
         }
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -196,15 +176,29 @@ fun PantallaMundosCeleste(navController: NavController){
         MundoCeleste("8-C", "Core (C-Side)", "10/10"),
         MundoCeleste("9-A", "Farewell", "10/10"),
     )
-
-    LazyColumn(
-        modifier = Modifier
-            .padding(8.dp)
+    Column(
+        Modifier.background(Color.hsv(195f, .43f, .50f))
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
     ){
-        items(mundosCeleste) {
-                mundoCeleste ->
-            TarjetaMundoCeleste(mundoCeleste)
+        Text(
+            "Niveles de Celeste",
+            textAlign = TextAlign.Center,
+            fontSize = 24.sp,
+            color = Color(0xFF17282D),
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(16.dp)
+        )
+        LazyColumn(
+            modifier = Modifier
+                .padding(8.dp)
+        ){
+            items(mundosCeleste) {
+                    mundoCeleste ->
+                TarjetaMundoCeleste(mundoCeleste)
+            }
         }
     }
+
 }
 
