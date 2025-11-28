@@ -19,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,6 +40,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.catalogodevideojuegos.R
+import com.example.catalogodevideojuegos.ui.resenia.ReseniaEntryScreen
+import com.example.catalogodevideojuegos.ui.resenia.ReseniaListSection
 
 data class MundoCeleste(val id: String, val nombre: String, val dificultad: String)
 
@@ -74,7 +77,7 @@ fun TarjetaMundoCeleste(mundoCeleste: MundoCeleste){
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaCeleste(navController : NavController){
-    val backgroundColor = Color.hsv(195f, .43f, .50f)
+    val backgroundColor = Color.hsv(195f, .43f, .30f)
     val titleColor = Color.hsv(195f, .43f, 1f)
 
     Column(
@@ -131,14 +134,19 @@ fun PantallaCeleste(navController : NavController){
             }
             Spacer(modifier = Modifier.height(24.dp))
             Button(
+                colors = ButtonDefaults.buttonColors(Color(0xFF66B1C7)),
+
                 onClick = {navController.navigate("juego_01_celeste_0"){
                     launchSingleTop = true
                     }
                 }
             ){
-                Text("Lista de Niveles")
+                Text("Lista de Niveles", color = Color(0xFF17282D))
             }
-
+        Spacer(Modifier.height(8.dp))
+        ReseniaEntryScreen()
+        Spacer(Modifier.height(8.dp))
+        ReseniaListSection()
         }
 }
 
@@ -175,7 +183,7 @@ fun PantallaMundosCeleste(navController: NavController){
         MundoCeleste("9-A", "Farewell", "10/10"),
     )
     Column(
-        Modifier.background(Color.hsv(195f, .43f, .50f))
+        Modifier.background(Color(0xFF66B1C7))
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ){

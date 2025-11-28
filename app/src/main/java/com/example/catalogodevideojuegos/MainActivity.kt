@@ -189,7 +189,7 @@ fun MyApp(){
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Lista de Videojuegos", color = Color.White) },
+                    title = { Text("Lista de    Videojuegos", color = Color.White) },
                     navigationIcon = {
                         IconButton(onClick = {
                             scope.launch {

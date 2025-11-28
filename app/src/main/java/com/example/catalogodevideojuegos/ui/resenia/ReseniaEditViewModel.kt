@@ -10,7 +10,7 @@ import com.example.catalogodevideojuegos.data.ReseniaRepositorio
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-
+/*
 class ReseniaEditViewModel (
     savedStateHandle: SavedStateHandle,
     private val reseniaRepositorio: ReseniaRepositorio
@@ -47,3 +47,5 @@ class ReseniaEditViewModel (
         }
     }
 }
+
+ */

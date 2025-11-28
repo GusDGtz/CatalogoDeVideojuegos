@@ -1,0 +1,250 @@
+kotlin version: 2.2.21
+error message: java.lang.RuntimeException: Exception while generating code for:
+FUN name:createOpenDelegate visibility:protected modality:OPEN returnType:androidx.room.RoomOpenDelegate
+  VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl
+  overridden:
+    protected open fun createOpenDelegate (): androidx.room.RoomOpenDelegateMarker [fake_override] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos
+  BLOCK_BODY
+    VAR name:_openDelegate type:androidx.room.RoomOpenDelegate [val]
+      BLOCK type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> origin=OBJECT_LITERAL
+        CLASS CLASS name:<no name provided> modality:FINAL visibility:local superTypes:[androidx.room.RoomOpenDelegate]
+          thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+          CONSTRUCTOR visibility:public/*package*/ returnType:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> [primary]
+            VALUE_PARAMETER BOUND_RECEIVER_PARAMETER kind:Regular name:this$0 index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl
+            BLOCK_BODY
+              SET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:this$0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl visibility:public/*package*/ [final] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>' type=kotlin.Unit origin=INITIALIZER_OF_FIELD_FOR_CAPTURED_VALUE
+                receiver: GET_VAR '<this>: com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>' type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> origin=null
+                value: GET_VAR 'this$0: com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.<init>' type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl origin=null
+              DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (version: kotlin.Int, identityHash: kotlin.String, legacyIdentityHash: kotlin.String) [primary] declared in androidx.room.RoomOpenDelegate'
+                ARG version: CONST Int type=kotlin.Int value=1
+                ARG identityHash: CONST String type=kotlin.String value="5340c76545a69a4cb5909ba0f3ffe3d9"
+                ARG legacyIdentityHash: CONST String type=kotlin.String value="5321c5c783e5230207c566fd1b748a0b"
+              BLOCK type=kotlin.Unit origin=null
+          FUN name:createAllTables visibility:public modality:OPEN returnType:kotlin.Unit
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+            VALUE_PARAMETER kind:Regular name:connection index:1 type:androidx.sqlite.SQLiteConnection
+            overridden:
+              public abstract fun createAllTables (connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in androidx.room.RoomOpenDelegate
+            BLOCK_BODY
+              CALL 'public final fun execSQL (<this>: androidx.sqlite.SQLiteConnection, sql: kotlin.String): kotlin.Unit declared in androidx.sqlite.SQLite' type=kotlin.Unit origin=null
+                ARG <this>: GET_VAR 'connection: androidx.sqlite.SQLiteConnection declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.createAllTables' type=androidx.sqlite.SQLiteConnection origin=null
+                ARG sql: CONST String type=kotlin.String value="CREATE TABLE IF NOT EXISTS `resenia` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `calificacion` INTEGER NOT NULL, `contenido` TEXT NOT NULL)"
+              CALL 'public final fun execSQL (<this>: androidx.sqlite.SQLiteConnection, sql: kotlin.String): kotlin.Unit declared in androidx.sqlite.SQLite' type=kotlin.Unit origin=null
+                ARG <this>: GET_VAR 'connection: androidx.sqlite.SQLiteConnection declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.createAllTables' type=androidx.sqlite.SQLiteConnection origin=null
+                ARG sql: CONST String type=kotlin.String value="CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)"
+              CALL 'public final fun execSQL (<this>: androidx.sqlite.SQLiteConnection, sql: kotlin.String): kotlin.Unit declared in androidx.sqlite.SQLite' type=kotlin.Unit origin=null
+                ARG <this>: GET_VAR 'connection: androidx.sqlite.SQLiteConnection declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.createAllTables' type=androidx.sqlite.SQLiteConnection origin=null
+                ARG sql: CONST String type=kotlin.String value="INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5340c76545a69a4cb5909ba0f3ffe3d9')"
+          FUN name:dropAllTables visibility:public modality:OPEN returnType:kotlin.Unit
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+            VALUE_PARAMETER kind:Regular name:connection index:1 type:androidx.sqlite.SQLiteConnection
+            overridden:
+              public abstract fun dropAllTables (connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in androidx.room.RoomOpenDelegate
+            BLOCK_BODY
+              CALL 'public final fun execSQL (<this>: androidx.sqlite.SQLiteConnection, sql: kotlin.String): kotlin.Unit declared in androidx.sqlite.SQLite' type=kotlin.Unit origin=null
+                ARG <this>: GET_VAR 'connection: androidx.sqlite.SQLiteConnection declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.dropAllTables' type=androidx.sqlite.SQLiteConnection origin=null
+                ARG sql: CONST String type=kotlin.String value="DROP TABLE IF EXISTS `resenia`"
+          FUN name:onCreate visibility:public modality:OPEN returnType:kotlin.Unit
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+            VALUE_PARAMETER kind:Regular name:connection index:1 type:androidx.sqlite.SQLiteConnection
+            overridden:
+              public abstract fun onCreate (connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in androidx.room.RoomOpenDelegate
+            BLOCK_BODY
+          FUN name:onOpen visibility:public modality:OPEN returnType:kotlin.Unit
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+            VALUE_PARAMETER kind:Regular name:connection index:1 type:androidx.sqlite.SQLiteConnection
+            overridden:
+              public abstract fun onOpen (connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in androidx.room.RoomOpenDelegate
+            BLOCK_BODY
+              CALL 'public final fun access$internalInitInvalidationTracker ($this: com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl, connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl' type=kotlin.Unit origin=null
+                ARG $this: GET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:this$0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl visibility:public/*package*/ [final] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>' type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl origin=null
+                  receiver: GET_VAR '<this>: com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onOpen' type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> origin=null
+                ARG connection: GET_VAR 'connection: androidx.sqlite.SQLiteConnection declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onOpen' type=androidx.sqlite.SQLiteConnection origin=null
+          FUN name:onPreMigrate visibility:public modality:OPEN returnType:kotlin.Unit
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+            VALUE_PARAMETER kind:Regular name:connection index:1 type:androidx.sqlite.SQLiteConnection
+            overridden:
+              public abstract fun onPreMigrate (connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in androidx.room.RoomOpenDelegate
+            BLOCK_BODY
+              CALL 'public final fun dropFtsSyncTriggers (connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in androidx.room.util.DBUtil' type=kotlin.Unit origin=null
+                ARG connection: GET_VAR 'connection: androidx.sqlite.SQLiteConnection declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onPreMigrate' type=androidx.sqlite.SQLiteConnection origin=null
+          FUN name:onPostMigrate visibility:public modality:OPEN returnType:kotlin.Unit
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+            VALUE_PARAMETER kind:Regular name:connection index:1 type:androidx.sqlite.SQLiteConnection
+            overridden:
+              public abstract fun onPostMigrate (connection: androidx.sqlite.SQLiteConnection): kotlin.Unit declared in androidx.room.RoomOpenDelegate
+            BLOCK_BODY
+          FUN name:onValidateSchema visibility:public modality:OPEN returnType:androidx.room.RoomOpenDelegate.ValidationResult
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>
+            VALUE_PARAMETER kind:Regular name:connection index:1 type:androidx.sqlite.SQLiteConnection
+            overridden:
+              public abstract fun onValidateSchema (connection: androidx.sqlite.SQLiteConnection): androidx.room.RoomOpenDelegate.ValidationResult declared in androidx.room.RoomOpenDelegate
+            BLOCK_BODY
+              VAR name:_columnsResenia type:kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> [val]
+                CALL 'public final fun mutableMapOf <K, V> (): kotlin.collections.MutableMap<K of kotlin.collections.MapsKt.mutableMapOf, V of kotlin.collections.MapsKt.mutableMapOf> [inline] declared in kotlin.collections.MapsKt' type=kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> origin=null
+                  TYPE_ARG K: kotlin.String
+                  TYPE_ARG V: androidx.room.util.TableInfo.Column
+              COMPOSITE type=kotlin.Unit origin=null
+                CALL 'public abstract fun put (key: K of kotlin.collections.MutableMap, value: V of kotlin.collections.MutableMap): V of kotlin.collections.MutableMap? declared in kotlin.collections.MutableMap' type=androidx.room.util.TableInfo.Column? origin=null
+                  ARG <this>: GET_VAR 'val _columnsResenia: kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> origin=null
+                  ARG key: CONST String type=kotlin.String value="id"
+                  ARG value: CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, type: kotlin.String, notNull: kotlin.Boolean, primaryKeyPosition: kotlin.Int, defaultValue: kotlin.String?, createdFrom: kotlin.Int) [primary] declared in androidx.room.util.TableInfo.Column' type=androidx.room.util.TableInfo.Column origin=null
+                    ARG name: CONST String type=kotlin.String value="id"
+                    ARG type: CONST String type=kotlin.String value="INTEGER"
+                    ARG notNull: CONST Boolean type=kotlin.Boolean value=true
+                    ARG primaryKeyPosition: CONST Int type=kotlin.Int value=1
+                    ARG defaultValue: CONST Null type=kotlin.Nothing? value=null
+                    ARG createdFrom: CONST Int type=kotlin.Int value=1
+                COMPOSITE type=kotlin.Unit origin=null
+              COMPOSITE type=kotlin.Unit origin=null
+                CALL 'public abstract fun put (key: K of kotlin.collections.MutableMap, value: V of kotlin.collections.MutableMap): V of kotlin.collections.MutableMap? declared in kotlin.collections.MutableMap' type=androidx.room.util.TableInfo.Column? origin=null
+                  ARG <this>: GET_VAR 'val _columnsResenia: kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> origin=null
+                  ARG key: CONST String type=kotlin.String value="calificacion"
+                  ARG value: CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, type: kotlin.String, notNull: kotlin.Boolean, primaryKeyPosition: kotlin.Int, defaultValue: kotlin.String?, createdFrom: kotlin.Int) [primary] declared in androidx.room.util.TableInfo.Column' type=androidx.room.util.TableInfo.Column origin=null
+                    ARG name: CONST String type=kotlin.String value="calificacion"
+                    ARG type: CONST String type=kotlin.String value="INTEGER"
+                    ARG notNull: CONST Boolean type=kotlin.Boolean value=true
+                    ARG primaryKeyPosition: CONST Int type=kotlin.Int value=0
+                    ARG defaultValue: CONST Null type=kotlin.Nothing? value=null
+                    ARG createdFrom: CONST Int type=kotlin.Int value=1
+                COMPOSITE type=kotlin.Unit origin=null
+              COMPOSITE type=kotlin.Unit origin=null
+                CALL 'public abstract fun put (key: K of kotlin.collections.MutableMap, value: V of kotlin.collections.MutableMap): V of kotlin.collections.MutableMap? declared in kotlin.collections.MutableMap' type=androidx.room.util.TableInfo.Column? origin=null
+                  ARG <this>: GET_VAR 'val _columnsResenia: kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> origin=null
+                  ARG key: CONST String type=kotlin.String value="contenido"
+                  ARG value: CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, type: kotlin.String, notNull: kotlin.Boolean, primaryKeyPosition: kotlin.Int, defaultValue: kotlin.String?, createdFrom: kotlin.Int) [primary] declared in androidx.room.util.TableInfo.Column' type=androidx.room.util.TableInfo.Column origin=null
+                    ARG name: CONST String type=kotlin.String value="contenido"
+                    ARG type: CONST String type=kotlin.String value="TEXT"
+                    ARG notNull: CONST Boolean type=kotlin.Boolean value=true
+                    ARG primaryKeyPosition: CONST Int type=kotlin.Int value=0
+                    ARG defaultValue: CONST Null type=kotlin.Nothing? value=null
+                    ARG createdFrom: CONST Int type=kotlin.Int value=1
+                COMPOSITE type=kotlin.Unit origin=null
+              VAR name:_foreignKeysResenia type:kotlin.collections.MutableSet<androidx.room.util.TableInfo.ForeignKey> [val]
+                CALL 'public final fun mutableSetOf <T> (): kotlin.collections.MutableSet<T of kotlin.collections.SetsKt.mutableSetOf> [inline] declared in kotlin.collections.SetsKt' type=kotlin.collections.MutableSet<androidx.room.util.TableInfo.ForeignKey> origin=null
+                  TYPE_ARG T: androidx.room.util.TableInfo.ForeignKey
+              VAR name:_indicesResenia type:kotlin.collections.MutableSet<androidx.room.util.TableInfo.Index> [val]
+                CALL 'public final fun mutableSetOf <T> (): kotlin.collections.MutableSet<T of kotlin.collections.SetsKt.mutableSetOf> [inline] declared in kotlin.collections.SetsKt' type=kotlin.collections.MutableSet<androidx.room.util.TableInfo.Index> origin=null
+                  TYPE_ARG T: androidx.room.util.TableInfo.Index
+              VAR name:_infoResenia type:androidx.room.util.TableInfo [val]
+                CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, columns: kotlin.collections.Map<kotlin.String, androidx.room.util.TableInfo.Column>, foreignKeys: kotlin.collections.Set<androidx.room.util.TableInfo.ForeignKey>, indices: kotlin.collections.Set<androidx.room.util.TableInfo.Index>?) [primary] declared in androidx.room.util.TableInfo' type=androidx.room.util.TableInfo origin=null
+                  ARG name: CONST String type=kotlin.String value="resenia"
+                  ARG columns: GET_VAR 'val _columnsResenia: kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=kotlin.collections.MutableMap<kotlin.String, androidx.room.util.TableInfo.Column> origin=null
+                  ARG foreignKeys: GET_VAR 'val _foreignKeysResenia: kotlin.collections.MutableSet<androidx.room.util.TableInfo.ForeignKey> [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=kotlin.collections.MutableSet<androidx.room.util.TableInfo.ForeignKey> origin=null
+                  ARG indices: GET_VAR 'val _indicesResenia: kotlin.collections.MutableSet<androidx.room.util.TableInfo.Index> [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=kotlin.collections.MutableSet<androidx.room.util.TableInfo.Index> origin=null
+              VAR name:_existingResenia type:androidx.room.util.TableInfo [val]
+                CALL 'public final fun read (connection: androidx.sqlite.SQLiteConnection, tableName: kotlin.String): androidx.room.util.TableInfo declared in androidx.room.util.TableInfo.Companion' type=androidx.room.util.TableInfo origin=null
+                  ARG <this>: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:Companion type:androidx.room.util.TableInfo.Companion visibility:public [final,static] declared in androidx.room.util.TableInfo' type=androidx.room.util.TableInfo.Companion origin=null
+                  ARG connection: GET_VAR 'connection: androidx.sqlite.SQLiteConnection declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=androidx.sqlite.SQLiteConnection origin=null
+                  ARG tableName: CONST String type=kotlin.String value="resenia"
+              WHEN type=kotlin.Unit origin=IF
+                BRANCH
+                  if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                    ARG <this>: CALL 'public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in androidx.room.util.TableInfo' type=kotlin.Boolean origin=null
+                      ARG <this>: GET_VAR 'val _infoResenia: androidx.room.util.TableInfo [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=androidx.room.util.TableInfo origin=null
+                      ARG other: GET_VAR 'val _existingResenia: androidx.room.util.TableInfo [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=androidx.room.util.TableInfo origin=null
+                  then: BLOCK type=kotlin.Unit origin=null
+                    RETURN type=kotlin.Nothing from='public open fun onValidateSchema (connection: androidx.sqlite.SQLiteConnection): androidx.room.RoomOpenDelegate.ValidationResult declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>'
+                      CONSTRUCTOR_CALL 'public constructor <init> (isValid: kotlin.Boolean, expectedFoundMsg: kotlin.String?) [primary] declared in androidx.room.RoomOpenDelegate.ValidationResult' type=androidx.room.RoomOpenDelegate.ValidationResult origin=null
+                        ARG isValid: CONST Boolean type=kotlin.Boolean value=false
+                        ARG expectedFoundMsg: STRING_CONCATENATION type=kotlin.String
+                          CONST String type=kotlin.String value="resenia(com.example.catalogodevideojuegos.data.Resenia).\n Expected:\n"
+                          GET_VAR 'val _infoResenia: androidx.room.util.TableInfo [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=androidx.room.util.TableInfo origin=null
+                          CONST String type=kotlin.String value="\n Found:\n"
+                          GET_VAR 'val _existingResenia: androidx.room.util.TableInfo [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>.onValidateSchema' type=androidx.room.util.TableInfo origin=null
+              RETURN type=kotlin.Nothing from='public open fun onValidateSchema (connection: androidx.sqlite.SQLiteConnection): androidx.room.RoomOpenDelegate.ValidationResult declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>'
+                CONSTRUCTOR_CALL 'public constructor <init> (isValid: kotlin.Boolean, expectedFoundMsg: kotlin.String?) [primary] declared in androidx.room.RoomOpenDelegate.ValidationResult' type=androidx.room.RoomOpenDelegate.ValidationResult origin=null
+                  ARG isValid: CONST Boolean type=kotlin.Boolean value=true
+                  ARG expectedFoundMsg: CONST Null type=kotlin.Nothing? value=null
+          FUN FAKE_OVERRIDE name:<get-version> visibility:public modality:FINAL returnType:kotlin.Int [fake_override]
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:androidx.room.RoomOpenDelegate
+            correspondingProperty: PROPERTY FAKE_OVERRIDE name:version visibility:public modality:FINAL [fake_override,val]
+            overridden:
+              public final fun <get-version> (): kotlin.Int declared in androidx.room.RoomOpenDelegate
+          FUN FAKE_OVERRIDE name:<get-identityHash> visibility:public modality:FINAL returnType:kotlin.String [fake_override]
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:androidx.room.RoomOpenDelegate
+            correspondingProperty: PROPERTY FAKE_OVERRIDE name:identityHash visibility:public modality:FINAL [fake_override,val]
+            overridden:
+              public final fun <get-identityHash> (): kotlin.String declared in androidx.room.RoomOpenDelegate
+          FUN FAKE_OVERRIDE name:<get-legacyIdentityHash> visibility:public modality:FINAL returnType:kotlin.String [fake_override]
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:androidx.room.RoomOpenDelegate
+            correspondingProperty: PROPERTY FAKE_OVERRIDE name:legacyIdentityHash visibility:public modality:FINAL [fake_override,val]
+            overridden:
+              public final fun <get-legacyIdentityHash> (): kotlin.String declared in androidx.room.RoomOpenDelegate
+          FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+            VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+            overridden:
+              public open fun equals (other: kotlin.Any?): kotlin.Boolean [fake_override,operator] declared in androidx.room.RoomOpenDelegate
+          FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+            overridden:
+              public open fun hashCode (): kotlin.Int [fake_override] declared in androidx.room.RoomOpenDelegate
+          FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+            VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+            overridden:
+              public open fun toString (): kotlin.String [fake_override] declared in androidx.room.RoomOpenDelegate
+          FIELD FIELD_FOR_CAPTURED_VALUE name:this$0 type:com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl visibility:public/*package*/ [final]
+        BLOCK type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> origin=null
+          CONSTRUCTOR_CALL 'public/*package*/ constructor <init> (this$0: com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl) [primary] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided>' type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate.<no name provided> origin=OBJECT_LITERAL
+            ARG this$0: GET_VAR '<this>: com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate' type=com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl origin=null
+    RETURN type=kotlin.Nothing from='protected open fun createOpenDelegate (): androidx.room.RoomOpenDelegate declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl'
+      GET_VAR 'val _openDelegate: androidx.room.RoomOpenDelegate [val] declared in com.example.catalogodevideojuegos.data.JuegosBaseDatos_Impl.createOpenDelegate' type=androidx.room.RoomOpenDelegate origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:53)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:46)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:422)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:439)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:164)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateFile(JvmIrCodegenFactory.kt:446)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:413)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler.runCodegen$cli(KotlinToJVMBytecodeCompiler.kt:425)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:89)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:27)
+	at org.jetbrains.kotlin.cli.pipeline.PipelinePhase.phaseBody(PipelinePhase.kt:68)
+	at org.jetbrains.kotlin.cli.pipeline.PipelinePhase.phaseBody(PipelinePhase.kt:58)
+	at org.jetbrains.kotlin.config.phaser.NamedCompilerPhase.invoke(CompilerPhase.kt:102)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:22)
+	at org.jetbrains.kotlin.config.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:53)
+	at org.jetbrains.kotlin.cli.pipeline.AbstractCliPipeline.runPhasedPipeline(AbstractCliPipeline.kt:109)
+	at org.jetbrains.kotlin.cli.pipeline.AbstractCliPipeline.execute(AbstractCliPipeline.kt:68)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecutePhased(K2JVMCompiler.kt:79)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecutePhased(K2JVMCompiler.kt:45)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:90)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.exec(CLICompiler.kt:352)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunnerBase.runCompiler(IncrementalJvmCompilerRunnerBase.kt:176)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunnerBase.runCompiler(IncrementalJvmCompilerRunnerBase.kt:39)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:499)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:416)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileNonIncrementally(IncrementalCompilerRunner.kt:301)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:128)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:684)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:94)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1810)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NoClassDefFoundError: org/jetbrains/annotations/NotNull
+	at org.jetbrains.kotlin.backend.jvm.codegen.AnnotationCodegen.generateNullabilityAnnotation$backend_jvm_codegen(AnnotationCodegen.kt:144)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:94)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:50)
+	... 44 more
+Caused by: java.lang.ClassNotFoundException: org.jetbrains.annotations.NotNull
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(Unknown Source)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(Unknown Source)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	... 47 more
+
+

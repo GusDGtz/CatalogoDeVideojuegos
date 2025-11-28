@@ -8,6 +8,9 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.catalogodevideojuegos.CatalogoApplication
 import com.example.catalogodevideojuegos.ui.home.HomeViewModel
+import com.example.catalogodevideojuegos.ui.resenia.ReseniaListViewModel
+
+//import com.example.catalogodevideojuegos.ui.resenia.ReseniaEditViewModel
 
 /**
  * Provides Factory to create instance of ViewModel for the entire Inventory app
@@ -15,12 +18,15 @@ import com.example.catalogodevideojuegos.ui.home.HomeViewModel
 object AppViewModelProvider {
     val Factory = viewModelFactory {
         // Initializer for ItemEditViewModel
+        /*
         initializer {
             ReseniaEditViewModel(
                 this.createSavedStateHandle(),
                 inventoryApplication().container.reseniaRepositorio
             )
         }
+
+         */
         // Initializer for ItemEntryViewModel
         initializer {
             _root_ide_package_.com.example.catalogodevideojuegos.ui.resenia.ReseniaEntryViewModel(
@@ -28,14 +34,12 @@ object AppViewModelProvider {
             )
         }
 
-        /* Initializer for ItemDetailsViewModel
         initializer {
-            ReseniaDetailsViewModel(
-                this.createSavedStateHandle(),
+            ReseniaListViewModel(
                 inventoryApplication().container.reseniaRepositorio
             )
         }
-        */
+
 
         // Initializer for HomeViewModel
         initializer {

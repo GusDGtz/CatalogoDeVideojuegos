@@ -7,9 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.example.catalogodevideojuegos.data.Resenia
 import com.example.catalogodevideojuegos.data.ReseniaRepositorio
 
-/**
- * ViewModel to validate and insert items in the Room database.
- */
 class ReseniaEntryViewModel(private val reseniaRepositorio: ReseniaRepositorio) : ViewModel() {
 
     /**
@@ -40,9 +37,6 @@ class ReseniaEntryViewModel(private val reseniaRepositorio: ReseniaRepositorio) 
     }
 }
 
-/**
- * Represents Ui State for an Item.
- */
 data class ReseniaUiState(
     val reseniaDetails: ReseniaDetails = ReseniaDetails(),
     val isEntryValid: Boolean = false

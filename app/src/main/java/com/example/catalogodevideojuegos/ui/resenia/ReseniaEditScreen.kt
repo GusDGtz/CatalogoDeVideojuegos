@@ -14,7 +14,7 @@ import com.example.catalogodevideojuegos.ui.AppViewModelProvider
 import com.example.catalogodevideojuegos.ui.navigation.NavigationDestination
 import kotlinx.coroutines.launch
 
-
+/*
 object ReseniaEditDestination: NavigationDestination {
     override val route = "item_edit"
     override val titleRes = R.string.edit_item_title
@@ -62,3 +62,5 @@ fun ItemEditScreenPreview() {
         ItemEditScreen(navigateBack = { /*Do nothing*/ }, onNavigateUp = { /*Do nothing*/ })
     }
 }
+
+ */
