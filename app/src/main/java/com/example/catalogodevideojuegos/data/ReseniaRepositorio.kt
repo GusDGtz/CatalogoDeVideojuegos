@@ -16,4 +16,6 @@ interface ReseniaRepositorio {
     fun deleteResenia(resenia: Resenia)
 
     fun getAllResenia() : Flow<List<Resenia>>
+
+    fun getResenia(id: Int): Flow<Resenia>
 }

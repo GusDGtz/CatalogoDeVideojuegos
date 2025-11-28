@@ -11,4 +11,6 @@ class OfflineReseniaRepositorio (private val reseniaDao: ReseniaDao): ReseniaRep
 
     override fun getAllResenia(): Flow<List<Resenia>> = reseniaDao.getAll()
 
+    override fun getResenia(id: Int): Flow<Resenia> = reseniaDao.getResenia(id)
+
 }

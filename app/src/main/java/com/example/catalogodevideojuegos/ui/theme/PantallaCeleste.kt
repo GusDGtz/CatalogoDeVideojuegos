@@ -77,8 +77,7 @@ fun PantallaCeleste(navController : NavController){
     val backgroundColor = Color.hsv(195f, .43f, .50f)
     val titleColor = Color.hsv(195f, .43f, 1f)
 
-
-        Column(
+    Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(backgroundColor)

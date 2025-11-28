@@ -18,4 +18,7 @@ interface ReseniaDao {
     fun delete(resenia: Resenia)
     @Query("SELECT *  FROM resenia")
     fun getAll() : Flow<List<Resenia>>
+
+    @Query("SELECT * FROM resenia WHERE id= :id")
+    fun getResenia(id: Int): Flow<Resenia>
 }

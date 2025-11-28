@@ -3,6 +3,7 @@ package com.example.catalogodevideojuegos
 import android.R.attr.fontWeight
 import android.R.attr.text
 import android.R.attr.title
+import android.app.Application
 import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -78,6 +79,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.catalogodevideojuegos.data.AppContainer
+import com.example.catalogodevideojuegos.data.AppDataContainer
 import com.example.catalogodevideojuegos.ui.theme.CatalogoDeVideojuegosTheme
 import com.example.catalogodevideojuegos.ui.theme.PantallaCeleste
 import com.example.catalogodevideojuegos.ui.theme.PantallaExpedition
@@ -340,7 +343,18 @@ fun PantallaPrincipal(navController: NavHostController) {
     }
 }
 
+class CatalogoApplication : Application() {
 
+    /**
+     * AppContainer instance used by the rest of classes to obtain dependencies
+     */
+    lateinit var container: AppContainer
+
+    override fun onCreate() {
+        super.onCreate()
+        container = AppDataContainer(this)
+    }
+}
 
 @Preview
 @Composable
